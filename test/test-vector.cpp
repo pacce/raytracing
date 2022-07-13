@@ -20,11 +20,40 @@ struct Arbitrary<Vector> {
 
 RC_GTEST_PROP(
         Add
-        , Commutative
-        , (const Vector& lhs, const Vector& rhs)
+        , Associative
+        , (const Vector& xs, const Vector& ys, const Vector& zs)
         )
 {
-    RC_ASSERT((lhs + rhs) == (rhs + lhs));
+    RC_ASSERT(((xs + ys) + zs) == (xs + ys + zs));
+}
+
+RC_GTEST_PROP(
+        Add
+        , Commutative
+        , (const Vector& xs, const Vector& ys)
+        )
+{
+    RC_ASSERT((xs + ys) == (ys + xs));
+}
+
+RC_GTEST_PROP(
+        Add
+        , Neutral
+        , (const Vector& xs)
+        )
+{
+    Vector ys = {};
+    RC_ASSERT((xs + ys) == xs);
+}
+
+RC_GTEST_PROP(
+        Add
+        , Successor
+        , (const Vector& xs)
+        )
+{
+    Vector ys(1.0, 1.0, 1.0);
+    RC_ASSERT((xs + ys) != xs);
 }
 
 int
