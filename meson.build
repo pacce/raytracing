@@ -4,16 +4,24 @@ png = dependency('libpng', required: true)
 
 dependencies  = [png]
 sources       = [
-  'source/main.cpp'
-  , 'source/png/png.cpp'
+  'source/raytracing-png.cpp'
   ]
-include       = [
-  'source/png'
-  ]
+include       = ['include']
+install_headers(
+  [ 'include/raytracing.hpp'
+  , 'include/raytracing-png.hpp'
+  ])
 
-executable(
+raytracing = library(
   meson.project_name()
   , sources
   , dependencies        : dependencies
   , include_directories : include
+  , install             : true
   )
+raytracing_dep = declare_dependency(
+  link_with             : raytracing
+  , include_directories : include
+  )
+
+subdir('example')

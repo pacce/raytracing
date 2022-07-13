@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "png.hpp"
+#include "raytracing.hpp"
 
 const std::size_t WIDTH     = 800;
 const std::size_t HEIGHT    = 600;
@@ -10,7 +10,7 @@ const std::size_t HEIGHT    = 600;
 int
 main(int argc, char **argv) {
     try {
-        png::Image image = {};
+        raytracing::png::Image image = {};
         for (std::size_t w = 0; w < WIDTH; w++) {
         for (std::size_t h = 0; h < HEIGHT; h++) {
             image.push_back(255);   // Red
@@ -19,7 +19,7 @@ main(int argc, char **argv) {
             image.push_back(255);   // Alpha
         }
         }
-        png::write("hello.png", image, WIDTH, HEIGHT);
+        raytracing::png::write("hello.png", image, WIDTH, HEIGHT);
         exit(EXIT_SUCCESS);
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;

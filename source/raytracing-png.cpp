@@ -1,9 +1,10 @@
-#include "png.hpp"
+#include "raytracing-png.hpp"
 
 #include <png.h>
 #include <cstdio>
 #include <stdexcept>
 
+namespace raytracing {
 namespace png {
     void
     write(
@@ -74,3 +75,4 @@ namespace png {
         std::fclose(handle);
     }
 } // namespace png
+} // namespace raytracing

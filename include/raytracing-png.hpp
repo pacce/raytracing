@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 
+namespace raytracing {
 namespace png {
     using Pixel = uint8_t;
     using Image = std::vector<Pixel>;
@@ -19,5 +20,6 @@ namespace png {
             , Height            hs
             );
 } // namespace png
+} // namespace raytracing
 
 #endif //  PNG_HPP__
