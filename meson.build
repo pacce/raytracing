@@ -5,11 +5,13 @@ png = dependency('libpng', required: true)
 dependencies  = [png]
 sources       = [
   'source/raytracing-png.cpp'
+  , 'source/raytracing-vector.cpp'
   ]
 include       = ['include']
 install_headers(
   [ 'include/raytracing.hpp'
   , 'include/raytracing-png.hpp'
+  , 'include/raytracing-vector.hpp'
   ])
 
 raytracing = library(
@@ -25,3 +27,4 @@ raytracing_dep = declare_dependency(
   )
 
 subdir('example')
+subdir('test')
